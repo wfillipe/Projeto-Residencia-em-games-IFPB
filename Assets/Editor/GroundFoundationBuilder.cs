@@ -21,7 +21,9 @@ public static class GroundFoundationBuilder
 
     private static void OnEditorDelayCall()
     {
-        if (EditorApplication.isPlayingOrWillChangePlaymode) return;
+        if (EditorApplication.isPlayingOrWillChangePlaymode ||
+            EditorSceneManager.GetActiveScene().path != ScenePath)
+            return;
 
         if (!SessionState.GetBool(Task05Key, false))
         {

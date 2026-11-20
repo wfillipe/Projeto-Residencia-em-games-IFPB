@@ -38,7 +38,7 @@ public sealed class GameMenus : MonoBehaviour
 
     private void Update()
     {
-        if (changingScene)
+        if (changingScene || SceneFade.Busy)
             return;
 
         if (dying)
@@ -99,7 +99,7 @@ public sealed class GameMenus : MonoBehaviour
         Select(null);
     }
 
-    public void Play() => Load("Assets/Scenes/TopDown.unity");
+    public void Play() => Load("Assets/Scenes/Primeira cena.unity");
     public void Restart() => Load(SceneManager.GetActiveScene().path);
     public void MainMenu() => Load("Assets/Scenes/MainMenu.unity");
 
