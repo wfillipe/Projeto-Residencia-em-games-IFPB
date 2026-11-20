@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 114002}
   - component: {fileID: 114003}
   - component: {fileID: 114004}
+  - component: {fileID: 950010}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Untagged
@@ -209,45 +210,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   moveSpeed: 1.5
   attackDamage: 2
-  attackDuration: 0.65
-  impactPoint: 0.6
   attackCooldown: 0.6
-  framesPerSecond: 10
-  idleFrames:
-  - {fileID: 200000000, guid: 41bf34a896884b03b7db3c6a16fb0546, type: 3}
-  - {fileID: 200000001, guid: 41bf34a896884b03b7db3c6a16fb0546, type: 3}
-  - {fileID: 200000002, guid: 41bf34a896884b03b7db3c6a16fb0546, type: 3}
-  - {fileID: 200000003, guid: 41bf34a896884b03b7db3c6a16fb0546, type: 3}
-  - {fileID: 200000004, guid: 41bf34a896884b03b7db3c6a16fb0546, type: 3}
-  - {fileID: 200000005, guid: 41bf34a896884b03b7db3c6a16fb0546, type: 3}
-  walkFrames:
-  - {fileID: 200000000, guid: b8c2913536e64b6dae78b307302e2133, type: 3}
-  - {fileID: 200000001, guid: b8c2913536e64b6dae78b307302e2133, type: 3}
-  - {fileID: 200000002, guid: b8c2913536e64b6dae78b307302e2133, type: 3}
-  - {fileID: 200000003, guid: b8c2913536e64b6dae78b307302e2133, type: 3}
-  - {fileID: 200000004, guid: b8c2913536e64b6dae78b307302e2133, type: 3}
-  - {fileID: 200000005, guid: b8c2913536e64b6dae78b307302e2133, type: 3}
-  - {fileID: 200000006, guid: b8c2913536e64b6dae78b307302e2133, type: 3}
-  - {fileID: 200000007, guid: b8c2913536e64b6dae78b307302e2133, type: 3}
-  attackFrames:
-  - {fileID: 200000000, guid: 4be20b529b85485eae01b1d49cc6e649, type: 3}
-  - {fileID: 200000001, guid: 4be20b529b85485eae01b1d49cc6e649, type: 3}
-  - {fileID: 200000002, guid: 4be20b529b85485eae01b1d49cc6e649, type: 3}
-  - {fileID: 200000003, guid: 4be20b529b85485eae01b1d49cc6e649, type: 3}
-  - {fileID: 200000004, guid: 4be20b529b85485eae01b1d49cc6e649, type: 3}
-  - {fileID: 200000005, guid: 4be20b529b85485eae01b1d49cc6e649, type: 3}
-  - {fileID: 200000006, guid: 4be20b529b85485eae01b1d49cc6e649, type: 3}
-  deathFrames:
-  - {fileID: 200000000, guid: da3994064aa844bbafdcf612fb238f3f, type: 3}
-  - {fileID: 200000001, guid: da3994064aa844bbafdcf612fb238f3f, type: 3}
-  - {fileID: 200000002, guid: da3994064aa844bbafdcf612fb238f3f, type: 3}
-  - {fileID: 200000003, guid: da3994064aa844bbafdcf612fb238f3f, type: 3}
-  - {fileID: 200000004, guid: da3994064aa844bbafdcf612fb238f3f, type: 3}
-  - {fileID: 200000005, guid: da3994064aa844bbafdcf612fb238f3f, type: 3}
-  - {fileID: 200000006, guid: da3994064aa844bbafdcf612fb238f3f, type: 3}
-  - {fileID: 200000007, guid: da3994064aa844bbafdcf612fb238f3f, type: 3}
-  - {fileID: 200000008, guid: da3994064aa844bbafdcf612fb238f3f, type: 3}
-  - {fileID: 200000009, guid: da3994064aa844bbafdcf612fb238f3f, type: 3}
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,3 +276,25 @@ MonoBehaviour:
   flashMaterial: {fileID: 2100000, guid: 297fc5a8bcac43bb8092953b394a6c00, type: 2}
   renderers:
   - {fileID: 212001}
+--- !u!95 &950010
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100001}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 679af5a212374a44b18d97b5600ffb60, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
