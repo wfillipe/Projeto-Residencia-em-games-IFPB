@@ -19,6 +19,8 @@ public sealed class PlayerController : MonoBehaviour
     private Vector2 direction;
     private Facing facing;
     private PlayerCombat combat;
+    private Health health;
+    private DamageReaction reaction;
     private bool lastMovementFlip;
 
     internal Vector2 AttackDirection { get; private set; } = Vector2.down;
@@ -28,12 +30,20 @@ public sealed class PlayerController : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         combat = GetComponent<PlayerCombat>();
+        health = GetComponent<Health>();
+        reaction = GetComponent<DamageReaction>();
     }
 
     private void Update()
     {
-        if (combat != null && combat.IsAttacking)
+        if (Time.timeScale == 0f || (health != null && !health.IsAlive) || (combat != null && combat.IsAttacking))
             return;
+
+        if (reaction != null && reaction.IsRecoiling)
+        {
+            animator.SetBool(IsMoving, false);
+            return;
+        }
 
         direction = ReadDirection(Keyboard.current);
         bool moving = direction != Vector2.zero;
@@ -63,7 +73,13 @@ public sealed class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        body.linearVelocity = combat != null && combat.IsAttacking ? Vector2.zero : direction * moveSpeed;
+        if (reaction != null && reaction.IsRecoiling)
+            return;
+
+        bool stopped = (health != null && !health.IsAlive) || (combat != null && combat.IsAttacking);
+        body.linearVelocity = stopped ? Vector2.zero : direction * moveSpeed;
+        if (health != null && !health.IsAlive)
+            animator.SetBool(IsMoving, false);
     }
 
     private void OnDisable()
