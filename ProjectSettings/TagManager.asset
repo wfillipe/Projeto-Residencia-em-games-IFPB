@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - OreTier1
+  - OreTier2
+  - OreTier3
   layers:
   - Default
   - TransparentFX

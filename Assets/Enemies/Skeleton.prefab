@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   maxHealth: 3
+  useGameManagerEnemyHealth: 1
 --- !u!114 &114002
 MonoBehaviour:
   m_ObjectHideFlags: 0
