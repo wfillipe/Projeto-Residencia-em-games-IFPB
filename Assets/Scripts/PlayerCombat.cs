@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Cinemachine;
 
 public interface IPickaxeDamageable
 {
@@ -21,6 +22,7 @@ public sealed class PlayerCombat : MonoBehaviour
     private Vector2 attackDirection = Vector2.down;
     private bool attackRequested;
     private PlayerAttackDamage attackDamage;
+    private CinemachineImpulseSource impulseSource;
 
     public bool IsAttacking => attackRequested ||
         (animator != null && animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"));
@@ -33,6 +35,7 @@ public sealed class PlayerCombat : MonoBehaviour
         health = GetComponent<Health>();
         reaction = GetComponent<DamageReaction>();
         attackDamage = GetComponent<PlayerAttackDamage>();
+        impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     private void Update()
@@ -47,6 +50,9 @@ public sealed class PlayerCombat : MonoBehaviour
         animator.SetFloat(AttackFacing, attackDirection.x < 0f ? 3f : attackDirection.x > 0f ? 2f : attackDirection.y > 0f ? 1f : 0f);
         attackRequested = true;
         animator.SetTrigger(Attack);
+
+        if (impulseSource != null)
+            impulseSource.GenerateImpulse();
     }
 
     private void LateUpdate()
