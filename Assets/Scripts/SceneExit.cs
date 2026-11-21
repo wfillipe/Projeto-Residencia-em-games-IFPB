@@ -4,6 +4,8 @@ using UnityEngine;
 public sealed class SceneExit : MonoBehaviour
 {
     [SerializeField] private string destinationScene;
+    [SerializeField] private string upgradedDestinationScene;
+    [SerializeField, Range(2, 3)] private int minimumUpgradeLevel = 2;
     [SerializeField] private SceneFade fade;
 
     private void OnTriggerEnter2D(Collider2D other) => TryExit(other);
@@ -18,6 +20,10 @@ public sealed class SceneExit : MonoBehaviour
         Rigidbody2D body = other.attachedRigidbody;
         if (body != null && body.CompareTag("Player") &&
             body.TryGetComponent<Health>(out var health) && health.IsAlive)
-            fade.GoTo(destinationScene);
+        {
+            bool useUpgradedDestination = !string.IsNullOrEmpty(upgradedDestinationScene) &&
+                OreInventory.PickaxeLevel >= minimumUpgradeLevel;
+            fade.GoTo(useUpgradedDestination ? upgradedDestinationScene : destinationScene);
+        }
     }
 }

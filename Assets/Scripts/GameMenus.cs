@@ -116,6 +116,7 @@ public sealed class GameMenus : MonoBehaviour
         }
 
         changingScene = true;
+        OreInventory.Reset();
         Time.timeScale = 1f;
         SceneManager.LoadScene(sceneIndex);
     }
